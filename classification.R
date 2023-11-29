@@ -1,0 +1,5 @@
+library(randomForest)
+load("/mnt/data/structuralcolourweb/structuralcolour2.rfo")
+predictionmatrix=read.table("structuralcolourpredictionmatrix.txt", sep=",", header=T, row.names=1)
+rf.votes <- predict(rf,predictionmatrix, type="vote")
+write.csv(rf.votes, file="structuralcolourvotes.txt")
